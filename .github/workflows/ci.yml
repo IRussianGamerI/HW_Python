@@ -13,10 +13,14 @@ jobs:
           sudo apt-get update
           sudo pip install pylint
           sudo pip install flake8
-      - name: Linters
+      - name: Linters for main
         run: |
           flake8 --max-line-length=100 main.py
           pylint --disable=C0111 main.py
+      - name: Linters for tests
+        run: |
+          flake8 --max-line-length=100 tests.py
+          pylint --disable=C0111 tests.py
       - name: Tests
         run: |
           python3 tests.py
