@@ -75,3 +75,7 @@ class TicTacGameTests(unittest.TestCase):
 
     def test_validate_input_6(self):
         self.assertFalse(TicTacGame(['X', 'X', 'O', 'X', 'O', 6, 'O', 8, 9]).validate_input('4'))
+
+
+if __name__ == '__main__':
+    unittest.main()

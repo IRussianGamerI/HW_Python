@@ -17,3 +17,6 @@ jobs:
         run: |
           flake8 --max-line-length=100 main.py
           pylint --disable=C0111 main.py
+      - name: Tests
+        run: |
+          python3 tests.py
