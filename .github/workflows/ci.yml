@@ -13,7 +13,6 @@ jobs:
           sudo apt-get update
           sudo pip install pylint
           sudo pip install flake8
-          sudo pip install unittest
       - name: Linters
         run: |
           flake8 --max-line-length=100 main.py
