@@ -9,12 +9,12 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install
-        run |
+        run: |
           sudo apt-get update
           sudo pip install pylint
           sudo pip install flake8
           sudo pip install unittest
       - name: Linters
-        run |
+        run: |
           flake8 --max-line-length=100 main.py
           pylint --disable=C0111 main.py
