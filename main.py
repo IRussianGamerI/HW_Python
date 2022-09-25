@@ -53,18 +53,20 @@ class TicTacGame:
             if steps_num >= 5:
                 win_check = self.check_winner()
                 if win_check:
+                    print(f"Победил игрок {win_check}!")
                     break
             if steps_num == 9:
                 self.show_board()
                 print("Ничья!")
                 break
 
+        return win_check
+
     def check_winner(self):
         combs = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7),
                  (2, 5, 8), (0, 4, 8), (2, 4, 6))
         for i in combs:
             if self.cells[i[0]] == self.cells[i[1]] == self.cells[i[2]]:
-                print(f"Победил игрок {self.cells[i[0]]}!")
                 return 1 if self.cells[i[0]] == "X" else 2
         return 0
 

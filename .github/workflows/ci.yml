@@ -3,7 +3,7 @@ on:
     branches: [ hw1 ]
 
 jobs:
-  build:
+  test_my_hw:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

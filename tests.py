@@ -1,4 +1,7 @@
 import unittest
+import io
+from unittest.mock import patch
+
 from main import TicTacGame
 
 
@@ -62,7 +65,7 @@ class TicTacGameTests(unittest.TestCase):
         except TypeError as t_err:
             instance = t_err
         finally:
-            self.assertTrue(isinstance(instance, TypeError))
+            self.assertIsInstance(instance, TypeError)
 
     def test_validate_input_2(self):
         instance = None
@@ -71,7 +74,7 @@ class TicTacGameTests(unittest.TestCase):
         except IndexError as ind_err:
             instance = ind_err
         finally:
-            self.assertTrue(isinstance(instance, IndexError))
+            self.assertIsInstance(instance, IndexError)
 
     def test_validate_input_3(self):
         instance = None
@@ -80,7 +83,7 @@ class TicTacGameTests(unittest.TestCase):
         except TypeError as t_err:
             instance = t_err
         finally:
-            self.assertTrue(isinstance(instance, TypeError))
+            self.assertIsInstance(instance, TypeError)
 
     def test_validate_input_4(self):
         instance = None
@@ -89,7 +92,7 @@ class TicTacGameTests(unittest.TestCase):
         except TypeError as t_err:
             instance = t_err
         finally:
-            self.assertTrue(isinstance(instance, TypeError))
+            self.assertIsInstance(instance, TypeError)
 
     def test_validate_input_5(self):
         self.assertTrue(TicTacGame().validate_input('4'))
@@ -98,6 +101,16 @@ class TicTacGameTests(unittest.TestCase):
         self.assertFalse(TicTacGame(['X', 'X', 'O',
                                      'X', 'O', 6,
                                      'O', 8, 9]).validate_input('4'))
+
+    def test_show_board(self):
+        with patch('sys.stdout', new=io.StringIO()) as fake_out:
+            TicTacGame().show_board()
+            print(fake_out.getvalue())
+            self.assertTrue("""1 │ 2 │ 3
+───┼───┼───
+ 4 │ 5 │ 6
+───┼───┼───
+ 7 │ 8 │ 9""" in fake_out.getvalue())
 
 
 if __name__ == '__main__':
