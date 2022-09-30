@@ -28,8 +28,8 @@ jobs:
       - name: Coverage
         run: |
           coverage run tests.py
-          coverage report -m --omit="/usr/local/lib/*, /usr/lib/*"
-          coverage html --omit="/usr/local/lib/*, /usr/lib/*"
+          coverage report -m --omit="/usr/local/lib/*,/usr/lib/*"
+          coverage html --omit="/usr/local/lib/*,/usr/lib/*"
       - name: Upload coverage into artifacts
         uses: actions/upload-artifact@v2
         with:
