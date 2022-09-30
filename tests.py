@@ -71,6 +71,13 @@ class JsonParserTest(unittest.TestCase):
         else:
             self.assertEqual(1, 1)
 
+    @patch('main.keyword_callback_example')
+    def test_none(self, mocker):
+        fake_json, fake_doc = generate_fake_json()
+        required_fields, keywords, count = None, None, 0
+        main.parse_json(mocker, fake_json, required_fields, keywords)
+        self.assertEqual(mocker.call_count, count)
+
 
 if __name__ == '__main__':
     unittest.main()

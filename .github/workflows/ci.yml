@@ -14,6 +14,7 @@ jobs:
           sudo pip install pylint
           sudo pip install flake8
           sudo pip install faker
+          sudo pip install coverage
       - name: Linters for main
         run: |
           flake8 --max-line-length=100 main.py
@@ -24,3 +25,13 @@ jobs:
       - name: Tests
         run: |
           python3 tests.py
+      - name: Coverage
+        run: |
+          coverage run tests.py
+          coverage report -m
+          coverage html
+      - name: Upload coverage into artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: htmlcov
