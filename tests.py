@@ -66,7 +66,7 @@ class JsonParserTest(unittest.TestCase):
         try:
             json_str = '{"BMSTU": "University", "HSE": "Sharaga"}'
             main.parse_json(main.keyword_callback_example, json_str, ['BMSTU'], ['University'])
-        except:
+        except TypeError:
             self.assertEqual(0, 1)
         else:
             self.assertEqual(1, 1)
