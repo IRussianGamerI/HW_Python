@@ -1,7 +1,5 @@
 on:
   push:
-    branches:
-      - hw2
     paths:
       - 'hw2/**'
 jobs:
@@ -39,4 +37,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: coverage-report
-          path: htmlcov
+          path: hw2/htmlcov
