@@ -2,8 +2,6 @@ on:
   push:
     branches:
       - hw2
-    paths:
-      - hw2
 
 jobs:
   test_my_hw:
