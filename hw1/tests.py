@@ -1,7 +1,6 @@
 import unittest
 import io
 from unittest.mock import patch
-
 from main import TicTacGame
 
 
