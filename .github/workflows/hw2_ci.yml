@@ -1,10 +1,14 @@
 on:
   push:
-    branches: [ hw2 ]
+    paths:
+    - hw2
 
 jobs:
   test_my_hw:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./hw2
     steps:
       - uses: actions/checkout@v2
 
