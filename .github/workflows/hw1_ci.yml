@@ -1,10 +1,14 @@
 on:
   push:
-    branches: [ hw1 ]
+    paths:
+      - 'hw1/**'
 
 jobs:
-  test_my_hw:
+  test_hw1:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./hw1
     steps:
       - uses: actions/checkout@v2
 
@@ -13,14 +17,29 @@ jobs:
           sudo apt-get update
           sudo pip install pylint
           sudo pip install flake8
+
       - name: Linters for main
         run: |
           flake8 --max-line-length=100 main.py
           pylint --disable=C0111 main.py
+
       - name: Linters for tests
         run: |
           flake8 --max-line-length=100 tests.py
           pylint --disable=C0111 tests.py
+
       - name: Tests
         run: |
           python3 tests.py
+
+      - name: Coverage
+        run: |
+          coverage run tests.py
+          coverage report -m --omit="/usr/local/lib/*,/usr/lib/*"
+          coverage html --omit="/usr/local/lib/*,/usr/lib/*"
+
+      - name: Upload coverage into artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: hw1/htmlcov
