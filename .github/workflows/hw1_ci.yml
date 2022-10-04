@@ -17,6 +17,7 @@ jobs:
           sudo apt-get update
           sudo pip install pylint
           sudo pip install flake8
+          sudo pip install coverage
 
       - name: Linters for main
         run: |
