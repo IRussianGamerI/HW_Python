@@ -1,9 +1,9 @@
-import main
 import unittest
 from unittest.mock import patch
 import json
 import random
 from faker import Faker
+import main
 
 
 def counter(document: dict, fields, values):
