@@ -21,7 +21,7 @@ class CustomList(list):
         return self.sum() >= other.sum()
 
     def __str__(self):
-        return super().__str__() + ' ' + str(self.sum())
+        return super().__str__() + " " + str(self.sum())
 
     def __add__(self, other):
         if len(self) >= len(other):
