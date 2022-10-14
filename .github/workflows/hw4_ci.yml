@@ -1,0 +1,33 @@
+on:
+  push:
+    paths:
+      - 'hw4/**'
+      - '.github/workflows/hw4_ci.yml'
+jobs:
+  test_my_hw:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./hw4
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install
+        run: |
+          sudo apt-get update
+          sudo pip install pylint
+          sudo pip install flake8
+          sudo pip install black
+      - name: Linters for metaclass
+        run: |
+          flake8 --max-line-length=100 meta.py
+          pylint --disable=C0111 meta.py
+          black --check --diff meta.py
+      - name: Linters for descriptors
+        run: |
+          flake8 --max-line-length=100 desc.py
+          pylint --disable=C0111 desc.py
+          black --check --diff desc.py
+      - name: Tests
+        run: |
+          python3 tests.py
