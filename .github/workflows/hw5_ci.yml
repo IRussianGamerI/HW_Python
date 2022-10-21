@@ -12,10 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+          architecture: x64
+
       - name: Install
         run: |
           sudo apt-get update
-          sudo apt-get install python3
           sudo pip install pylint
           sudo pip install flake8
           sudo pip install black
