@@ -1,4 +1,4 @@
-def filter_file(file, wordlist: list[str]):
+def filter_file(file, wordlist: list):
     if not isinstance(wordlist, list):
         raise TypeError("wordlist must be a list")
     if any(not isinstance(i, str) for i in wordlist):
