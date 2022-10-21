@@ -7,16 +7,16 @@ from filter_file import filter_file
 class TestFilterFile(unittest.TestCase):
     def test_exception(self):
         with self.assertRaises(TypeError):
-            for line in filter_file(19, ["Тык-тык"]):
-                print(line)
+            gen = filter_file(19, ["Тык-тык"])
+            next(gen)
         with self.assertRaises(TypeError):
-            for line in filter_file("filename", "word"):
-                print(line)
+            gen = filter_file("filename", "word")
+            next(gen)
         with self.assertRaises(ValueError):
-            for line in filter_file("filename", ["word1", "word2", 1337]):
-                print(line)
+            gen = filter_file("filename", ["word1", "word2", 1337])
+            next(gen)
         with self.assertRaises(ValueError):
-            with open("test_file", "w", encoding="utf-8") as file:
+            with open("test_file", "a", encoding="utf-8") as file:
                 gen = filter_file(file, ["correct", "list"])
                 next(gen)
 

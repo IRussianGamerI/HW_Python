@@ -4,7 +4,7 @@ def filter_file(file, wordlist: list[str]):
     if any(not isinstance(i, str) for i in wordlist):
         raise ValueError("wordlist must contain only str values")
     if hasattr(file, "readable"):
-        if not file.readable:
+        if not file.readable():
             raise ValueError("Given file does not allow reading")
         for line in file:
             if any(
