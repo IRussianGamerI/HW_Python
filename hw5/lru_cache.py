@@ -1,5 +1,4 @@
 class LRUCache:
-
     def __init__(self, limit=42):
         if not isinstance(limit, int):
             raise TypeError("limit must be int")
@@ -9,14 +8,14 @@ class LRUCache:
         self.limit = limit
 
     def get(self, key):
-        if key not in self.data.keys():
+        if key not in self.data:
             return None
         value = self.data.pop(key)
         self.data[key] = value
         return value
 
     def set(self, key, value):
-        if key in self.data.keys():
+        if key in self.data:
             self.data.pop(key)
         elif len(self.data.keys()) == self.limit:
             self.data.pop(list(self.data.keys())[0])

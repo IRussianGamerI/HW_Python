@@ -5,10 +5,10 @@ from lru_cache import LRUCache
 class TestLruCache(unittest.TestCase):
     def test_creation(self):
         with self.assertRaises(TypeError):
-            bad = LRUCache(0.5)
+            LRUCache(0.5)
 
         with self.assertRaises(ValueError):
-            bad = LRUCache(-294)
+            LRUCache(-294)
 
     def test_size_one(self):
         just_one = LRUCache(1)
