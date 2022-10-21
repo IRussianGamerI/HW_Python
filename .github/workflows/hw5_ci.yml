@@ -15,6 +15,7 @@ jobs:
       - name: Install
         run: |
           sudo apt-get update
+          sudo apt-get install python3
           sudo pip install pylint
           sudo pip install flake8
           sudo pip install black
