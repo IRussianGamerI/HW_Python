@@ -24,6 +24,7 @@ jobs:
           sudo pip install pylint
           sudo pip install flake8
           sudo pip install black
+          sudo pip install coverage
       - name: Linters for lru_cache
         run: |
           flake8 --max-line-length=100 lru_cache.py
