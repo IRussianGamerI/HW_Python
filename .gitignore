@@ -1,4 +1,12 @@
-/venv
-/.idea
-/htmlcov
-/.coverage
+venv/
+.idea/
+htmlcov/
+.coverage/
+hw7/build/
+hw7/CMakeFiles/
+hw7/cmake-build-debug/
+hw3/__pycache__/
+hw4/__pycache__/
+hw5/__pycache__/
+hw5/.coverage
+__pycache__/
