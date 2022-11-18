@@ -2,6 +2,7 @@ on:
   push:
     paths:
       - '08/**'
+      - '.github/workflows/hw8_ci.yml'
 jobs:
   test_my_hw:
     runs-on: ubuntu-latest
@@ -14,10 +15,13 @@ jobs:
       - name: Install
         run: |
           sudo apt-get update
-          sudo pip install pylint
-          sudo pip install flake8
-          sudo pip install faker
-          sudo pip install coverage
+          pip install aiohttp
+          pip install aiofiles
+          pip install bs4
+          pip install pylint
+          pip install flake8
+          pip install black
+          pip install coverage
       - name: Linters for fetcher
         run: |
           flake8 --max-line-length=100 fetcher.py
