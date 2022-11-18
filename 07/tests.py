@@ -26,7 +26,7 @@ class TestCFuncs(unittest.TestCase):
                 self.assertEqual(matrix.array[i][j], 0)
 
         self.lib.free_matrix(matrix)
-        
+
 
 if __name__ == "__main__":
     unittest.main()

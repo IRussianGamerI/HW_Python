@@ -1,14 +1,14 @@
 on:
   push:
     paths:
-      - 'hw5/**'
+      - '05/**'
       - '.github/workflows/hw5_ci.yml'
 jobs:
   test_my_hw:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./hw5
+        working-directory: ./05
     steps:
       - uses: actions/checkout@v2
 
@@ -62,7 +62,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: LRU-coverage-report
-          path: hw5/htmlcov
+          path: 05/htmlcov
 
       - name: Coverage for filter_file
         run: |
@@ -74,4 +74,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: filter_file-coverage-report
-          path: hw5/htmlcov
+          path: 05/htmlcov

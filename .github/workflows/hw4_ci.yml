@@ -1,14 +1,14 @@
 on:
   push:
     paths:
-      - 'hw4/**'
+      - '04/**'
       - '.github/workflows/hw4_ci.yml'
 jobs:
   test_my_hw:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./hw4
+        working-directory: ./04
     steps:
       - uses: actions/checkout@v2
 

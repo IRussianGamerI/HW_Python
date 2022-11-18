@@ -1,14 +1,14 @@
 on:
   push:
     paths:
-      - 'hw3/**'
+      - '03/**'
       - '.github/workflows/hw3_ci.yml'
 jobs:
   test_my_hw:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./hw3
+        working-directory: ./03
     steps:
       - uses: actions/checkout@v2
 
@@ -41,4 +41,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: coverage-report
-          path: hw3/htmlcov
+          path: 03/htmlcov

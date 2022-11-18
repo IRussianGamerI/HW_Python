@@ -1,13 +1,13 @@
 on:
   push:
     paths:
-      - 'hw2/**'
+      - '02/**'
 jobs:
   test_my_hw:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./hw2
+        working-directory: ./02
     steps:
       - uses: actions/checkout@v2
 
@@ -37,4 +37,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: coverage-report
-          path: hw2/htmlcov
+          path: 02/htmlcov
