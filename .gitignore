@@ -1,7 +1,7 @@
 venv/
 .idea/
 htmlcov/
-.coverage/
+.coverage
 07/build/
 07/CMakeFiles/
 07/cmake-build-debug/
@@ -10,3 +10,5 @@ htmlcov/
 05/__pycache__/
 05/.coverage
 __pycache__/
+08/website-classification-using-url/
+08/.coverage/
