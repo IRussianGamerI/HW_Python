@@ -33,6 +33,8 @@ class CustomMetaTestCase(unittest.TestCase):
         self.assertTrue(hasattr(instance, 'custom_function'))
         self.assertTrue(hasattr(instance, '__init__'))
         self.assertTrue(hasattr(instance, '__str__'))
+        self.assertFalse(hasattr(instance, 'custom___init__'))
+        self.assertFalse(hasattr(instance, 'custom___str__'))
 
         self.assertEqual(instance.custom_reg_attr, 11)
         self.assertEqual(instance.custom_fake_magic__, 44)
