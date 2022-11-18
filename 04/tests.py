@@ -41,11 +41,16 @@ class CustomMetaTestCase(unittest.TestCase):
         self.assertEqual(instance.custom_function(), 22)
         self.assertEqual(str(instance), 'STR')
 
+        self.assertEqual(len(instance.__class__.__dict__), 9)
+        self.assertEqual(len(instance.__dict__), 1)
+
         self.assertFalse(hasattr(instance, 'added_later'))
         self.assertFalse(hasattr(instance, 'custom_added_later'))
         instance.added_later = 'added_later'
         self.assertTrue(hasattr(instance, 'custom_added_later'))
         self.assertEqual(instance.custom_added_later, 'added_later')
+
+        self.assertEqual(len(instance.__dict__), 2)
 
 
 class DescriptorsTestCase(unittest.TestCase):
