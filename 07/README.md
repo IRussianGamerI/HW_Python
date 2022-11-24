@@ -26,7 +26,6 @@ sudo apt-get install cmake
 pip install -r requirements.txt
 ```
 
-
 ## Сборка библиотеки
 
 ```bash
@@ -40,4 +39,10 @@ make
 
 ```bash
 python3 compare.py
+```
+
+## Запуск тестов
+
+```bash
+python3 tests.py
 ```

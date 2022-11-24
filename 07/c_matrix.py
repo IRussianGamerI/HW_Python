@@ -3,7 +3,9 @@ from typing import List
 import cffi
 
 
-def c_mul_mat(matrix1: List[List[float]], matrix2: List[List[float]]) -> List[List[float]]:
+def c_matmul(
+    matrix1: List[List[float]], matrix2: List[List[float]]
+) -> List[List[float]]:
     shape1 = [len(i) for i in matrix1]
     shape2 = [len(i) for i in matrix2]
     if min(shape1) != max(shape1) or min(shape2) != max(shape2):
@@ -18,7 +20,8 @@ def c_mul_mat(matrix1: List[List[float]], matrix2: List[List[float]]) -> List[Li
 
     ffi = cffi.FFI()
     lib = ffi.dlopen("build/libmatrix.so")
-    ffi.cdef("""
+    ffi.cdef(
+        """
     typedef struct Matrix {
         double **array;
         size_t rows, cols;
@@ -27,7 +30,8 @@ def c_mul_mat(matrix1: List[List[float]], matrix2: List[List[float]]) -> List[Li
     Matrix *create_matrix(size_t rows, size_t cols);
     int free_matrix(Matrix *matrix);
 
-    Matrix *mul(const Matrix *l, const Matrix *r);""")
+    Matrix *mul(const Matrix *l, const Matrix *r);"""
+    )
 
     cm1 = lib.create_matrix(rows1, cols1)
     cm2 = lib.create_matrix(rows2, cols2)

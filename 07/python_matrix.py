@@ -1,7 +1,9 @@
 from typing import List
 
 
-def py_mul_mat(matrix1: List[List[float]], matrix2: List[List[float]]) -> List[List[float]]:
+def py_matmul(
+    matrix1: List[List[float]], matrix2: List[List[float]]
+) -> List[List[float]]:
     shape1 = [len(i) for i in matrix1]
     shape2 = [len(i) for i in matrix2]
     if min(shape1) != max(shape1) or min(shape2) != max(shape2):

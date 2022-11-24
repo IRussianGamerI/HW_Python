@@ -1,2 +1,5 @@
+black==22.10.0
 cffi==1.15.1
-pycparser==2.21
+coverage==6.5.0
+flake8==6.0.0
+pylint==2.15.6
