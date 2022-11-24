@@ -36,6 +36,12 @@ jobs:
           pylint --disable=C0111 tests.py
           flake8 --max-line-length=100 tests.py
           black --check --diff tests.py
+      - name: Build dynamic library
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+          make
       - name: Tests
         run: |
           python3 tests.py
