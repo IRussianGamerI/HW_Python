@@ -10,7 +10,7 @@ class List(list):
     pass
 
 
-class StrWrap():
+class StrWrap:
     def __init__(self, str_val):
         self.value = str_val
 
