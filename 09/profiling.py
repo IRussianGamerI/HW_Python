@@ -1,5 +1,6 @@
 import cProfile
 import io
+from memory_profiler import profile
 import pstats
 
 from classes import MyPreciousClass, \
@@ -11,11 +12,11 @@ from classes import MyPreciousClass, \
     process_attrs_in_list, \
     process_weakrefs_in_list
 
-
 N = 1_000_000
 
 
-if __name__ == "__main__":
+@profile
+def to_be_profiled():
     pr = cProfile.Profile()
     pr.enable()
 
@@ -34,3 +35,7 @@ if __name__ == "__main__":
     ps.print_stats()
 
     print(out.getvalue())
+
+
+if __name__ == "__main__":
+    to_be_profiled()
