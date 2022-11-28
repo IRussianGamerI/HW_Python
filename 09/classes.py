@@ -19,7 +19,9 @@ class MyPreciousClass:
     def __init__(self):
         self.str_attr = StrWrap("My precious class to be tested")
         self.list_attr = List(self.str_attr.value.split())
-        self.dict_attr = Dict({word: number for number, word in enumerate(self.list_attr)})
+        self.dict_attr = Dict(
+            {word: number for number, word in enumerate(self.list_attr)}
+        )
 
 
 class MyPreciousClassWithSlots:
@@ -28,7 +30,9 @@ class MyPreciousClassWithSlots:
     def __init__(self):
         self.str_attr = StrWrap("My precious class to be tested")
         self.list_attr = List(self.str_attr.value.split())
-        self.dict_attr = Dict({word: number for number, word in enumerate(self.list_attr)})
+        self.dict_attr = Dict(
+            {word: number for number, word in enumerate(self.list_attr)}
+        )
 
 
 STR_WRAP_INSTANCE = StrWrap("My precious class to be tested")
@@ -73,13 +77,17 @@ if __name__ == "__main__":
     my_precious_list_with_slots = [MyPreciousClassWithSlots() for _ in range(N)]
     mpc_ws_time_end = time.time()
 
-    print(f"{N} экземпляров со слотами создались за {mpc_ws_time_end - mpc_ws_time_start} с")
+    print(
+        f"{N} экземпляров со слотами создались за {mpc_ws_time_end - mpc_ws_time_start} с"
+    )
 
     mpc_weakrefs_time_start = time.time()
     my_precious_list_with_weakrefs = [MyPreciousClassWithWeakrefs() for _ in range(N)]
     mpc_weakrefs_time_end = time.time()
 
-    print(f"{N} экземпляров с weakref'ами создались за {mpc_weakrefs_time_end - mpc_weakrefs_time_start} с")
+    print(
+        f"{N} экземпляров с weakref'ами создались за {mpc_weakrefs_time_end - mpc_weakrefs_time_start} с"
+    )
 
     print("\nИЗМЕРЕНИЕ ВРЕМЕНИ ДОСТУПА/ИМЕНЕНИЯ/УДАЛЕНИЯ АТРИБУТОВ\n")
 
@@ -93,10 +101,14 @@ if __name__ == "__main__":
     process_attrs_in_list(my_precious_list_with_slots)
     mod_slots_end = time.time()
 
-    print(f"Время обработки {N} экземпляров со слотами составило {mod_slots_end - mod_slots_start} с")
+    print(
+        f"Время обработки {N} экземпляров со слотами составило {mod_slots_end - mod_slots_start} с"
+    )
 
     mod_weakrefs_start = time.time()
     process_weakrefs_in_list(my_precious_list_with_weakrefs)
     mod_weakrefs_end = time.time()
 
-    print(f"Время обработки {N} экземпляров с weakref'ами составило {mod_weakrefs_end - mod_weakrefs_start} с")
+    print(
+        f"Время обработки {N} экземпляров с weakref'ами составило {mod_weakrefs_end - mod_weakrefs_start} с"
+    )
